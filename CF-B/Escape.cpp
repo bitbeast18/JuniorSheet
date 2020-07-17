@@ -26,7 +26,31 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    ld vp, vd, t, f, c;
+    cin >> vp >> vd >> t >> f >> c;
+
+    if (vp >= vd){
+        puts("0");
+        return 0;
+    }
+
+    ld dp = t * vp; // distance of princess.
+    ld dd = 0; // distance of dragon.
+    int ans = 0;
+    while(true){
+
+        ld nextMeetPoint = (ld)(vd * (dp - dd)) / (ld)(vd - vp);
+        if (nextMeetPoint >= c) break;
+        if (nextMeetPoint < c){
+            ans++; dp = nextMeetPoint; dd = 0;
+            ld extratime = f + (nextMeetPoint / vd);
+            dp += (extratime * vp);
+        }
+
+        if (dp >= c) break;
+    }
+
+    cout << ans << endl;
     return 0;
 }
 

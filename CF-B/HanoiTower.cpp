@@ -24,9 +24,35 @@ using ld = long double;
 const int MOD = 1e9 + 7;
 const int N = 1e6 + 5;
 
+
+
+void hanoi(int n, int from, int to, int temp, int ta, int tb, int tc, int pa, int pb, int pc){
+    
+    if (n <= 0) return;
+    
+    hanoi(n - 1, from, to, temp, ta, tb, tc, pa, pb, pc);
+    check(ta, tb, tc, pa, pb, pc);
+    hanoi(n - 1, temp, to, from, ta, tb, tc, pa, pb, pc);
+}
+
 int main(){
     // code here.
-    cout << INFL;
+    int n;
+    cin >> n;
+
+    int pa = 0, pb = 0, pc = 0;
+    
+    for(int i=0; i<n; i++){
+        int v;
+        cin >> v;
+        if (v == 1) pa |= (1 << i);
+        if (v == 2) pb |= (1 << i);
+        if (v == 3) pc |= (1 << i);
+    }
+
+    hanoi(((1 << n) - 1), 0, 0, pa, pb, pc);
+    if (ans) 
+
     return 0;
 }
 

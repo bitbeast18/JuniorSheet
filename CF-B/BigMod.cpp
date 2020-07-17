@@ -5,17 +5,11 @@
 */
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iomanip>
-#include <string>
-#include <cmath>
 using namespace std;
 
-#define endl '\n'
 #define INF 0x3f3f3f3f;
 #define INFL 0x3f3f3f3f3f3f3f3f;
-#define NITRO ios_base::sync_with_stdio(false); cin.tie(nullptr)
+#define NITRO ios_base::sync_with_stdio(false); cin.tie(false)
 #define PRECISE cout << fixed << setprecision(9)
 
 using ll = long long int;
@@ -24,9 +18,31 @@ using ld = long double;
 const int MOD = 1e9 + 7;
 const int N = 1e6 + 5;
 
+ll modpow(ll b, ll p, ll m){
+
+    if (p == 0){
+        return 1;
+    }
+
+    ll ans = modpow(b, p / 2, m) % m;
+    ans = (ans * ans) % m; 
+
+    if (p & 1) {
+        return (ans * b) % m; 
+    } else return (ans) % m; 
+
+}
 int main(){
+
     // code here.
-    cout << INFL;
+
+    ll b, p, m;
+    
+    while(cin >> b >> p >> m){
+        cout << modpow(b, p, m) << endl;
+    }
+
+
     return 0;
 }
 

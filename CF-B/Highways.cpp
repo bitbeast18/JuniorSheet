@@ -26,7 +26,8 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+
+
     return 0;
 }
 

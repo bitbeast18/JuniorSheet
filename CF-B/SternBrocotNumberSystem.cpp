@@ -24,9 +24,38 @@ using ld = long double;
 const int MOD = 1e9 + 7;
 const int N = 1e6 + 5;
 
+void figure(pair<int, int> l, pair<int, int> r, pair<int, int> target){
+
+    auto mid = make_pair(l.first + r.first, l.second + r.second);
+    
+    // cout << mid.first << " " << mid.second << endl;
+
+    if (mid.first == target.first and mid.second == target.second) return;
+    
+    else if (mid.first * target.second > mid.second * target.first){
+        cout << 'L';
+        figure(l, mid, target);
+    }
+    
+    else{
+        cout << 'R';
+        figure(mid, r, target);
+    }
+
+}
+
 int main(){
     // code here.
-    cout << INFL;
+    int a, b;
+
+    while(cin >> a >> b){
+
+        if (a == 1 and b == 1) return 0;
+
+        figure({0, 1}, {1, 0}, {a, b});
+        cout << endl;
+    }
+
     return 0;
 }
 

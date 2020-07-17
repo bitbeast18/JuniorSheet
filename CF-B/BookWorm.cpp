@@ -15,7 +15,7 @@ using namespace std;
 #define endl '\n'
 #define INF 0x3f3f3f3f;
 #define INFL 0x3f3f3f3f3f3f3f3f;
-#define NITRO ios_base::sync_with_stdio(false); cin.tie(nullptr)
+#define NITRO ios_base::sync_with_stdio(false); cin.tie(false)
 #define PRECISE cout << fixed << setprecision(9)
 
 using ll = long long int;
@@ -26,7 +26,20 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    int tv, tc, s, e;
+    cin >> tv >> tc >> s >> e;
+
+
+    int ans = abs(e - s) - 1;
+    ans *= ((2 * tc) + tv);
+
+    if (s <= e) {    
+        ans += 2 * tc;
+    } else {
+        ans += (2 * tc) + (2 * tv);
+    }
+
+    cout << abs(ans) << endl;
     return 0;
 }
 

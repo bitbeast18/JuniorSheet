@@ -5,18 +5,15 @@
 */
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include <iomanip>
-#include <string>
 #include <cmath>
 using namespace std;
 
-#define endl '\n'
 #define INF 0x3f3f3f3f;
 #define INFL 0x3f3f3f3f3f3f3f3f;
-#define NITRO ios_base::sync_with_stdio(false); cin.tie(nullptr)
-#define PRECISE cout << fixed << setprecision(9)
+#define NITRO ios_base::sync_with_stdio(false); cin.tie(false)
+#define PRECISE cout << fixed << setprecision(12)
+#define PI (ld)acos((ld)-1)
 
 using ll = long long int;
 using ld = long double;
@@ -26,7 +23,19 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    PRECISE;
+    ld d, h, v, e;
+    cin >> d >> h >> v >> e;
+
+    ld is = (PI * d * d * e) / 4;
+
+    if (v < is or (fabs(is - v) < 1e-6)){
+        puts("NO");
+    } else {
+        puts("YES");
+        cout << ((PI * d * d * h) / (4 * (v - is))) << endl;
+    }
+
     return 0;
 }
 

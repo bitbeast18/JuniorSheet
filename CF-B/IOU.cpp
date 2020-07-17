@@ -26,7 +26,25 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> each(n, 0);
+    for(int i=0; i<m; i++){
+        int t, f, a;
+        cin >> t >> f >> a;
+        t--; f--;
+
+        each[t] -= a;
+        each[f] += a;
+    }
+
+    int ans = 0;
+    for(int i=0; i<n; i++){
+        if (each[i] > 0) ans += each[i];
+    }
+
+    cout << ans << endl;
     return 0;
 }
 

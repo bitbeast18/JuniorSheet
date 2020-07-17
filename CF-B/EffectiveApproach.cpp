@@ -5,17 +5,12 @@
 */
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iomanip>
-#include <string>
-#include <cmath>
+#include <map>
 using namespace std;
 
-#define endl '\n'
 #define INF 0x3f3f3f3f;
 #define INFL 0x3f3f3f3f3f3f3f3f;
-#define NITRO ios_base::sync_with_stdio(false); cin.tie(nullptr)
+#define NITRO ios_base::sync_with_stdio(false); cin.tie(false)
 #define PRECISE cout << fixed << setprecision(9)
 
 using ll = long long int;
@@ -26,7 +21,26 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    int n, a;
+    cin >> n;
+
+    map<int, int> values;
+    for(int i=1; i<=n; i++){
+        cin >> a;
+        values[a] = i;
+    }
+
+    ll m;
+    cin >> m;
+
+    ll vasya = 0, petya = 0;
+    while(m--){
+        cin >> a;
+        vasya += values[a];
+        petya += n - values[a] + 1;
+    }
+
+    cout << vasya << " " << petya << endl;
     return 0;
 }
 

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 #include <iomanip>
 #include <string>
 #include <cmath>
@@ -26,7 +27,35 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    int n, k;
+    cin >> n >> k;
+
+    vector<int> pos, neg;
+    for(int i=0; i<n; i++){
+        int a;
+        cin >> a;
+
+        if (a >= 0) pos.push_back(a);
+        else neg.push_back(a);
+    }
+
+    sort(begin(neg), end(neg), greater<int>());
+
+    while(k > 0 and !neg.empty()){
+        pos.push_back(-neg.back());
+        neg.pop_back();
+        k --;
+    }
+
+    sort(begin(pos), end(pos));
+
+    while(k > 0) {
+        pos[0] *= -1;
+        k--;
+    }
+
+    cout << accumulate(begin(pos), end(pos), 0) + accumulate(begin(neg), end(neg), 0) << endl;
+
     return 0;
 }
 

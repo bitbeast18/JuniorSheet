@@ -26,7 +26,24 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    int n;
+    cin >> n;
+
+    vector<int> values(n);
+    for(auto &i: values) cin >> i;
+
+    ll ans = 0, cnt = 0;
+    for(int i=0; i<n; i++){
+        if (ans == 0 and values[i] == 1) ans = 1, cnt = 0;
+
+        if (values[i] == 1){
+            ans *= (cnt + 1);
+            cnt = 0;
+        } else cnt++;
+    }
+
+    cout << ans << endl;
+
     return 0;
 }
 

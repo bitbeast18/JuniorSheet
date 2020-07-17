@@ -26,7 +26,27 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    int n, k;
+    cin >> n >> k;
+
+    vector<vector<char>> mp(n, vector<char>(n, 'S'));
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            if ((i + j) % 2 == 0 and k > 0) mp[i][j] = 'L', k--;
+        }
+    }
+
+    if (k){
+        puts("NO");
+    } else {
+        puts("YES");
+        for(int x=0; x<n; x++){
+            for(int y=0; y<n; y++) cout << mp[x][y];
+            cout << endl;
+        }
+    }
+
     return 0;
 }
 
