@@ -28,7 +28,31 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+
+    int n;
+    cin >> n;
+
+    string a;
+    cin >> a;
+
+    string ans;
+    for(auto i: a){
+        
+        int v = i - '0';
+        
+        if (v == 1 or v == 0) continue;
+        if (v == 2 or v == 3 or v == 5 or v == 7) ans.push_back(i);
+
+        if (v == 4) ans.append("223");
+        if (v == 6) ans.append("35");
+        if (v == 8) ans.append("2227");
+        if (v == 9) ans.append("3327");
+    }
+    
+    sort(begin(ans), end(ans), greater<char>());
+
+    cout << ans << endl;
+
     return 0;
 }
 

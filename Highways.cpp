@@ -5,16 +5,8 @@
 */
 
 #include <iostream>
-#include <algorithm>
-#include <iomanip>
-#include <vector>
-#include <map>
-#include <set>
-#include <deque>
-#include <cstring>
 using namespace std;
 
-#define endl '\n';
 #define INF 0x3f3f3f3f;
 #define INFL 0x3f3f3f3f3f3f3f3f;
 #define NITRO ios_base::sync_with_stdio(false); cin.tie(false)
@@ -28,7 +20,7 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+
     return 0;
 }
 

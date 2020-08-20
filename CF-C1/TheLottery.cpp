@@ -26,9 +26,42 @@ using ld = long double;
 const int MOD = 1e9 + 7;
 const int N = 1e6 + 5;
 
+ll l(ll a, ll b){
+    return ((a * b) / __gcd(a, b));
+}
+
+ll solve(int idx, int cnt, ll lcm, int n, vector<ll>& values){
+
+
+    if (idx >= values.size()){
+        // decide
+        
+        if (cnt % 2 == 0){
+            return (n / lcm);
+        } else {
+            return -(n / lcm);
+        }
+    }
+
+    ll ans = 0;
+
+    ans += solve(idx + 1, cnt + 1, l(lcm, values[idx]), n, values);
+    ans += solve(idx + 1, cnt, lcm, n, values);
+
+    return ans;
+}
+
 int main(){
     // code here.
-    cout << INFL;
+    ll n, m;
+
+    while(cin >> n >> m){
+        vector<ll> values(m);
+        for(auto &i: values) cin >> i;
+
+        cout << solve(0, 0, 1, n, values) << endl;
+    }
+
     return 0;
 }
 

@@ -26,9 +26,31 @@ using ld = long double;
 const int MOD = 1e9 + 7;
 const int N = 1e6 + 5;
 
+bool isLucky(ll x){
+
+    for(ll a=2; a * a <= x; a++){
+        if ((x % (a * a)) == 0) return false;
+    }
+
+    return true;
+}
+
 int main(){
     // code here.
-    cout << INFL;
+    ll n;
+    cin >> n;
+
+    ll ans = 0;
+    // sqrt(n)
+    for(ll i=1; i * i <= n; i++){
+        if (n % i == 0){
+            if (isLucky(i)) ans = max(ans, i);
+            if (isLucky(n / i)) ans = max(ans, n / i);
+        }
+    }
+
+    cout << ans << endl;
+
     return 0;
 }
 

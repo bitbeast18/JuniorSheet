@@ -28,7 +28,29 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+
+    int n;
+    cin >> n;
+
+    map<int, int> xm, ym;
+    map<pair<int, int>, int> pm;
+
+    ll ans = 0;
+
+    for(int i=0; i<n; i++) {
+        int a, b;
+        cin >> a >> b;
+
+        ans += xm[a] + ym[b] - pm[{a, b}];
+
+        xm[a]++;
+        ym[b]++;
+        pm[{a, b}]++;
+    }
+
+    cout << ans << endl;
+
+
     return 0;
 }
 

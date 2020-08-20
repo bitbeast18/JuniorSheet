@@ -5,19 +5,17 @@
 */
 
 #include <iostream>
+#include <vector>
 #include <algorithm>
 #include <iomanip>
-#include <vector>
-#include <map>
-#include <set>
-#include <deque>
-#include <cstring>
+#include <string>
+#include <cmath>
 using namespace std;
 
-#define endl '\n';
+#define endl '\n'
 #define INF 0x3f3f3f3f;
 #define INFL 0x3f3f3f3f3f3f3f3f;
-#define NITRO ios_base::sync_with_stdio(false); cin.tie(false)
+#define NITRO ios_base::sync_with_stdio(false); cin.tie(nullptr)
 #define PRECISE cout << fixed << setprecision(9)
 
 using ll = long long int;
@@ -28,7 +26,18 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+    ll a, b;
+    cin >> a >> b;
+
+    ll i=a;
+
+    cout << "YES" << endl;
+    
+    while(i < b){
+        cout << i << " " << i + 1 << endl;
+        i+=2;
+    }
+
     return 0;
 }
 

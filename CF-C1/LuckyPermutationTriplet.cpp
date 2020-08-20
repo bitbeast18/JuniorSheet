@@ -28,7 +28,20 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+
+    int n;
+    cin >> n;
+
+    if (n % 2 == 0) {cout << -1 << endl;}
+    else {
+        for(int i=0; i<n ;i++) cout << i << " ";
+        cout << endl;
+        for(int i=0; i<n; i++) cout << i << " ";
+        cout << endl;
+        for(int i=0; i<n; i++) cout << (i * 2) % n << " ";
+        cout << endl;
+    }
+
     return 0;
 }
 

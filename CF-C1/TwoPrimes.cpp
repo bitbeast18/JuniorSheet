@@ -12,6 +12,7 @@
 #include <set>
 #include <deque>
 #include <cstring>
+#include <bitset>
 using namespace std;
 
 #define endl '\n';
@@ -24,11 +25,38 @@ using ll = long long int;
 using ld = long double;
 
 const int MOD = 1e9 + 7;
-const int N = 1e6 + 5;
+const int N = 2 * 1e7;
+
+vector<pair<int, int>> twins;
+bitset<N> primes;
+
+void generate(){
+    primes.set();
+    primes[0] = primes[1] = false;
+    
+    for(int i=2; i * i < N; i++){
+        if (primes[i]){
+            for(int j = 2 * i; j < N; j += i) primes[j] = false;
+        }
+    }
+
+    for(int i=2; i < N; i++){
+        if (primes[i] and primes[i - 2]){
+            twins.push_back({i - 2, i});
+        }
+    }
+}
 
 int main(){
     // code here.
-    cout << INFL;
+    generate();
+    
+    int t;
+//    cout << twins.size() << endl;
+    while(cin >> t){
+        printf("(%d, %d)\n", twins[t-1].first, twins[t-1].second);
+    }
+
     return 0;
 }
 

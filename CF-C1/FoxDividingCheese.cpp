@@ -28,7 +28,43 @@ const int N = 1e6 + 5;
 
 int main(){
     // code here.
-    cout << INFL;
+
+    ll a, b;
+    cin >> a >> b;
+
+    ll ans = 0;
+
+    ll n = max(a, b);
+
+    for(int i=2; i * i <= n; i++){
+
+        while((a % i == 0) or (b % i == 0)){
+            
+            if (a == b) {
+                cout << ans << endl;
+                return 0;
+            }
+            
+            if (a % i == 0) a /= i, ans++;
+            
+            if (a == b) {
+                cout << ans << endl;
+                return 0;
+            }
+            
+            
+            if (b % i == 0) b /= i, ans++;
+
+            if (a == b) {
+                cout << ans << endl;
+                return 0;
+            }
+
+        }
+    }
+
+    cout << -1 << endl;
+
     return 0;
 }
 

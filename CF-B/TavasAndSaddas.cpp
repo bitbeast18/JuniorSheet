@@ -5,19 +5,17 @@
 */
 
 #include <iostream>
+#include <vector>
 #include <algorithm>
 #include <iomanip>
-#include <vector>
-#include <map>
-#include <set>
-#include <deque>
-#include <cstring>
+#include <string>
+#include <cmath>
 using namespace std;
 
-#define endl '\n';
+#define endl '\n'
 #define INF 0x3f3f3f3f;
 #define INFL 0x3f3f3f3f3f3f3f3f;
-#define NITRO ios_base::sync_with_stdio(false); cin.tie(false)
+#define NITRO ios_base::sync_with_stdio(false); cin.tie(nullptr)
 #define PRECISE cout << fixed << setprecision(9)
 
 using ll = long long int;
@@ -26,9 +24,27 @@ using ld = long double;
 const int MOD = 1e9 + 7;
 const int N = 1e6 + 5;
 
+ll n;
+vector<ll> values;
+
+void generate(ll i){
+
+    if (i >= n) return;
+
+    values.push_back(i);
+    generate(i * 10 + 4);
+    generate(i * 10 + 7);
+}
+
 int main(){
     // code here.
-    cout << INFL;
+    cin >>  n;
+
+    generate(0);
+
+    cout << lower_bound(begin(values), end(values), n) - begin(values) << endl;
+
+
     return 0;
 }
 
